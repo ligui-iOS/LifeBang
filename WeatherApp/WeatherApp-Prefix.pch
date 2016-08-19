@@ -1,0 +1,34 @@
+//
+// Prefix header for all source files of the 'WeatherApp' target in the 'WeatherApp' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "LBTool.h"
+    #import "MyUtil.h"
+    #import "LBPublic.h"
+    #import "UIImage+Overlay.h"
+#endif
+#define CUSTOM_FONT(A) [UIFont fontWithName:@"DFPWaWaW5-GB" size:A]
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kNavigationBarHeight 44
+#define kNavigationBarAndStatusHeight 64
+#define IOS_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue])
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define USER_DEFAULT [NSUserDefaults standardUserDefaults]
